@@ -65,3 +65,41 @@ Dans cet exercice, nous avons déployé un serveur web Nginx avec Docker (télé
 * **Étape 6** : Supprimer le conteneur (`docker rm mon_nginx`) et vérifier sa suppression définitive (`docker ps -a`)
 
 ![Arrêt et suppression du conteneur](ex-4/2.png)
+
+---
+
+## Exercice 5 : Déploiement d'une application Python Flask
+
+Dans cet exercice, nous avons créé et déployé une application web simple Flask avec Docker :
+
+* Création de l'application Flask minimale dans `app.py` (retournant `Hello World!`).
+* Écriture du `Dockerfile` basé sur `python:3.9-slim` avec installation de Flask, copie de `app.py` dans l'image et exposition du port 5000.
+* Construction de l'image Docker et lancement du conteneur avec redirection de port (`5000:5000`).
+* Test et validation de l'application depuis le navigateur (`http://localhost:5000`).
+
+Toutes les étapes demandées ont été réalisées avec succès.
+
+---
+
+### 1. Construction de l'image Docker
+
+* **Étape** : Construction de l'image personnalisée `ex-5-app` à partir du `Dockerfile` (`docker build -t ex-5-app .`)
+
+![Construction de l'image](ex-5/3.png)
+
+---
+
+### 2. Lancement du conteneur et vérification
+
+* **Étape** : Lancement du conteneur en arrière-plan avec redirection de port (`docker run -d -p 5000:5000 --name ex-5-container ex-5-app`)
+* **Étape** : Vérification de l'état actif du conteneur (`docker ps`) et de la liste des images (`docker images`)
+
+![Lancement du conteneur et statut](ex-5/2.png)
+
+---
+
+### 3. Validation de l'application dans le navigateur
+
+* **Étape** : Accès à l'application via `http://localhost:5000` et affichage du message `Hello World!`
+
+![Validation dans le navigateur](ex-5/1.png)
