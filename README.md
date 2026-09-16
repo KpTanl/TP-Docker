@@ -103,3 +103,36 @@ Toutes les étapes demandées ont été réalisées avec succès.
 * **Étape** : Accès à l'application via `http://localhost:5000` et affichage du message `Hello World!`
 
 ![Validation dans le navigateur](ex-5/1.png)
+
+---
+
+## Exercice 6 : Utilisation de docker compose
+
+Dans cet exercice, nous avons déployé une application multi-conteneurs composée d'un serveur web Flask et d'une base de données MongoDB à l'aide de Docker Compose :
+
+* Modification de `app.py` pour établir la connexion avec MongoDB (via `pymongo`), enregistrer les visites et vérifier le bon fonctionnement de la base de données.
+* Mise à jour du `Dockerfile` pour installer `flask` et `pymongo`.
+* Rédaction du fichier `docker-compose.yml` pour orchestrer les services `web` et `mongodb` (avec redirection des ports, gestion de l'ordre de démarrage `depends_on` et persistance des données via le volume `mongo_data`).
+* Lancement des conteneurs via `docker compose up --build -d` et validation du bon fonctionnement et de la connexion à la base de données via le navigateur (`http://localhost:5000`).
+
+Toutes les étapes demandées ont été réalisées avec succès.
+
+---
+
+### 1. Déploiement et orchestration des services avec Docker Compose
+
+* **Étape** : Construction et démarrage des conteneurs en arrière-plan (`docker compose up --build -d`)
+
+![Lancement Docker Compose](ex-6/2.png)
+
+* **Étape** : Vérification du bon démarrage des services et de l'état des conteneurs (`docker ps`)
+
+![Vérification de l'état des conteneurs](ex-6/3.png)
+
+---
+
+### 2. Validation de la connexion à MongoDB dans le navigateur
+
+* **Étape** : Accès à l'application web via `http://localhost:5000` confirmant la bonne communication avec MongoDB (`Hello World! Connexion à MongoDB réussie !`)
+
+![Validation dans le navigateur](ex-6/1.png)
